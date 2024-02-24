@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urna Eletronica</title>
+</head>
+<body>
+    <div class="container">
+        <div class="branco">
+          <div class="cinzaClaro">
+            <img src="" alt="">
+            <p>Número:</p>
+            <form action="">
+              <input id="campo1" size="1" maxlength="1" type="text">
+              <input id="campo2" size="1" maxlength="1" type="text">
+            </form>
+            <p>Nome:</p>
+          </div>
+          <div class="cinzaEscuro">
+           <b>JUSTIÇA<br>ELEITORAL</b> 
+          </div>
+          <div class="preto">
+            <button class="bnt click" onclick="inserir(1)">1</button>
+            <button class="bnt click" onclick="inserir(2)">2</button>
+            <button class="bnt click" onclick="inserir(3)">3</button>
+            <button class="bnt click" onclick="inserir(4)">4</button>
+            <button class="bnt click" onclick="inserir(5)">5</button>
+            <button class="bnt click" onclick="inserir(6)">6</button>
+            <button class="bnt click" onclick="inserir(7)">7</button>
+            <button class="bnt click" onclick="inserir(8)">8</button>
+            <button class="bnt click" onclick="inserir(9)">9</button>
+            <button class="bnt click" onclick="inserir(0)">0</button>
+          <div class="colorido">
+            <button class="branco" onclick="branco()">BRANCO</button>
+            <button class="laranja" onclick="corrigir()">CORRIGE</button>
+            <button class="verde" onclick="confirma()">CONFIRMA</button>
+           </div>
+          </div>
+               <link rel="stylesheet" href="Urna.css" />
+        </div>
+        </div>
+        <script>
+          const som = new Audio("urna.mp3");
+          function confirma(){
+            var valor1 = document.getElementById("campo1").value;
+            var valor2 = document.getElementById("campo2").value;
+            if (valor1 != "" & valor2 != ""){
+            som.play("urna.mp3")
+            alert("Confirmado o Voto no candiato " + document.getElementById("campo1").value + document.getElementById("campo2").value);
+            document.getElementById("campo1").value = "";
+            document.getElementById("campo2").value = "";
+            }
+          }
+          function inserir(valor){
+            var valor1 = document.getElementById("campo1").value;
+            var valor2 = document.getElementById("campo2").value;
+            if(valor1 == "") {
+              document.getElementById("campo1").value = valor;
+            } else if(valor2 == ""){
+              document.getElementById("campo2").value = valor;
+            }
+          }
+          function corrigir(){
+            document.getElementById("campo1").value = "";
+            document.getElementById("campo2").value = "";
+          }
+          function branco(){
+            som.play("urna.mp3")
+            alert("Confirmado o Voto Branco");
+            document.getElementById("campo1").value = "";
+            document.getElementById("campo2").value = "";
+          }
+        </script>
+</body>
+</html>
+
